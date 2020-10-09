@@ -1,23 +1,25 @@
 //
-//  TableViewCell.swift
+//  QuizTableCell.swift
 //  Quiz Of Knowledge
 //
-//  Created by Intern on 08/10/2020.
+//  Created by Intern on 09/10/2020.
 //
 
 import UIKit
 
-class QuizTableViewCell: UITableViewCell {
+class QuizTableCell: UITableViewCell {
 
+    @IBOutlet weak var quizCellImageView: UIImageView!
+    @IBOutlet weak var quizCellCategoryLBL: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
-    
+
 }

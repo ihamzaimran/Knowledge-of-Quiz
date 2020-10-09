@@ -26,6 +26,7 @@ class AboutViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var quizKnowledgeDescriptionLBL: UILabel!
     @IBOutlet weak var bottomStackViewWidthMultiplier: NSLayoutConstraint!
     @IBOutlet weak var socialMediaStackViewWidthMultiplier: NSLayoutConstraint!
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     
     
     //MARK:- variables
@@ -56,6 +57,7 @@ class AboutViewController: UIViewController, UIGestureRecognizerDelegate {
             
             quizKnowledgeDescriptionLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 30)
             titleLBLBottomConstraint.constant = -50
+            buttonBottomConstraint.constant = -50
             socialMediaBottomConstraint.constant = 80
             bottomStackViewConstraintFromCenterY.constant = 250
             titleLBL.font = UIFont.init(name: Constants.Fonts.comfartaaBold, size: 40)
@@ -153,7 +155,7 @@ extension AboutViewController: MFMailComposeViewControllerDelegate {
     func sendEmail(){
         
         let email = "feedback@suavesolutions.net"
-        let subject = "Comments & Suggestions - Quiz of Knowledge"
+        let subject = "Comments and Suggestions-Quiz of Knowledge"
         let bodyText = "Via Knowledge of Quiz"
         
         if MFMailComposeViewController.canSendMail(){

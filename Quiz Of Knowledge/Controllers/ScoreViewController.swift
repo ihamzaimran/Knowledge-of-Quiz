@@ -13,6 +13,7 @@ class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var titleLBL: UILabel!
     @IBOutlet weak var titleBottomContraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -39,6 +40,7 @@ class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
         case .pad:
             titleLBL.font = UIFont.init(name: Constants.Fonts.comfartaaBold, size: 40)
             titleBottomContraint.constant = -50
+            buttonBottomConstraint.constant = -50
         default:
             break
         }
@@ -56,7 +58,7 @@ class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
 
 extension ScoreViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

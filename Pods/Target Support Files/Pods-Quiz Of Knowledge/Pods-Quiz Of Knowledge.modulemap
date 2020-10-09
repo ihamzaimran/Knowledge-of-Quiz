@@ -1,0 +1,6 @@
+framework module Pods_Quiz_Of_Knowledge {
+  umbrella header "Pods-Quiz Of Knowledge-umbrella.h"
+
+  export *
+  module * { export * }
+}

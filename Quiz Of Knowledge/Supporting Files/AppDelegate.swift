@@ -10,9 +10,12 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+//    let helper = DBHelper()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+//        helper.copyDatabaseIfNeeded()
+//        helper.openDatabase()
         
         return true
     }

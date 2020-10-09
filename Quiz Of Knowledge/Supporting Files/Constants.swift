@@ -30,6 +30,8 @@ struct Constants {
         static let scoreVCStoryboard = "scoreViewStoryboard"
         static let homeVCStoryboard = "homeViewStoryboard"
         static let quizVCStoryboard = "quizViewStoryboard"
+        static let gameRulesStoryboard = "gameRulesViewStoryboard"
+        static let selectedCategoryQuizStoryboard = "selectedCategoryQuizStoryboard"
     }
     
     struct OpenExternalLinks {
@@ -44,6 +46,18 @@ struct Constants {
     struct TableViewCell{
         static let scoreBoardTableCell = "scoreBoardCellIdentifier"
         static let quizVCTableViewCell = "quizTableCellIdentifier"
+        static let gameRulesTableViewCell = "gamRulesCellIdentifier"
     }
-   
+    
+    struct Quiz{
+        static let categoryNames = ["Random", "History", "Geography", "Science", "Arts", "Technology",
+                             "Food", "Music", "Entertainment", "Athletics", "Animals", "Space", "Mythology"]
+        static let imagesNames = ["random", "history", "geography", "science", "arts", "technology", "food", "music", "entertainment", "athletics", "animals", "space", "mythology"]
+    }
+    
+    struct GameRules {
+        static let rules = ["Answer the question as fast as you can.", "You will have 20 Seconds to answer each question.", "You will have 3 Lives.", "For 5 correct answer in a row you gain one life.", "The faster you answer, the more points you earn."]
+        static let helpImages = ["help1","help2","help3","help4","help5"]
+    }
+    
 }
