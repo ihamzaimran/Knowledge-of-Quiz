@@ -29,11 +29,11 @@ class QuizViewController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
-        //        tableView.register(UINib(nibName: "QuizTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.TableViewCell.quizVCTableViewCell)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
+        setIpadSettings()
     }
     
     
@@ -88,6 +88,7 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.gameRulesStoryboard) as! GameRulesViewController
         newVC.categoryID = indexPath.row + 1
+        newVC.categoryName = categories[indexPath.row]
         self.navigationController?.pushViewController(newVC, animated: true)
     }
 }

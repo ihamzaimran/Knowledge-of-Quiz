@@ -22,6 +22,7 @@ class GameRulesViewController: UIViewController, UIGestureRecognizerDelegate {
     private let ruleDescription = Constants.GameRules.rules
     private let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
     internal var categoryID: Int?
+    internal var categoryName: String?
       
     override var prefersStatusBarHidden: Bool {
         return true
@@ -36,9 +37,6 @@ class GameRulesViewController: UIViewController, UIGestureRecognizerDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
-        if let id = categoryID{
-            print("Got the ID: \(id)")
-        }
         setIpadSettings()
     }
     
@@ -68,6 +66,7 @@ class GameRulesViewController: UIViewController, UIGestureRecognizerDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
         newVC.categoryID = categoryID
+        newVC.categoryName = categoryName
         self.navigationController?.pushViewController(newVC, animated: true)
     }
 }

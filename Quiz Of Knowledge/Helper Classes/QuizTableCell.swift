@@ -11,6 +11,7 @@ class QuizTableCell: UITableViewCell {
 
     @IBOutlet weak var quizCellImageView: UIImageView!
     @IBOutlet weak var quizCellCategoryLBL: UILabel!
+    @IBOutlet weak var quizUIView: UIView!
     
     
     override func awakeFromNib() {

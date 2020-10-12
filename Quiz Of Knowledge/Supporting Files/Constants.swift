@@ -32,6 +32,7 @@ struct Constants {
         static let quizVCStoryboard = "quizViewStoryboard"
         static let gameRulesStoryboard = "gameRulesViewStoryboard"
         static let selectedCategoryQuizStoryboard = "selectedCategoryQuizStoryboard"
+        static let resultsStoryboard = "resultsStoryboard"
     }
     
     struct OpenExternalLinks {
