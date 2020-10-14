@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK:- IBOUTLets
     @IBOutlet weak var titleLBL: UILabel!

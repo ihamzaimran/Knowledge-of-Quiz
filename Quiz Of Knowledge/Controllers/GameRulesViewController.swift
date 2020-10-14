@@ -36,7 +36,7 @@ class GameRulesViewController: UIViewController, UIGestureRecognizerDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+        print(categoryID)
         setIpadSettings()
     }
     

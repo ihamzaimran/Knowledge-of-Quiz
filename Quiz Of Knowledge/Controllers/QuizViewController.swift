@@ -18,6 +18,7 @@ class QuizViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private let imagesNames = Constants.Quiz.imagesNames
     private let categories = Constants.Quiz.categoryNames
+    private let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -41,7 +42,7 @@ class QuizViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // adjusting settings for ipad for better user experience
     private func setIpadSettings(){
-        let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
+        
         switch (deviceIdiom) {
         case .pad:
             titleLBL.font = UIFont.init(name: Constants.Fonts.comfartaaBold, size: 40)
@@ -74,13 +75,25 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .clear
         cell.quizCellImageView.image = UIImage(named: imagesNames[indexPath.row])
         cell.quizCellCategoryLBL.text = categories[indexPath.row]
-        cell.quizCellCategoryLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 22)
+        switch (deviceIdiom) {
+        case .pad:
+            cell.quizCellCategoryLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 40)
+        default:
+            cell.quizCellCategoryLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 22)
+        }
+        
         cell.quizCellCategoryLBL.textColor = .white
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        
+        switch (deviceIdiom) {
+        case .pad:
+            return 120
+        default:
+            return 75
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

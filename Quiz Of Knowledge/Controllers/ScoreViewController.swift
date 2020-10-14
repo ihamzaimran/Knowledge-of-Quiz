@@ -18,13 +18,12 @@ class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setIpadSettings()
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        setIpadSettings()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -48,9 +47,15 @@ class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK:- buttons pressed functions
     @IBAction func backButton(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: ViewController.self) {
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
     }
-    
 }
 
 

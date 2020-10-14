@@ -33,13 +33,14 @@ class DBHelper{
                 if let dbFilePath = Bundle.main.path(forResource: "QuizOfKnowledge", ofType: "sqlite") {
                     try fileManager.copyItem(atPath: dbFilePath, toPath: finalDatabaseURL.path)
                 } else {
-                    print("Uh oh - ramzan.sqlite is not in the app bundle")
+                    print("Uh oh - QuizOfKnowledge.sqlite is not in the app bundle")
                 }
             } else {
                 print("Database file found at path: \(finalDatabaseURL.path)")
             }
         } catch {
-            print("Unable to copy ramzan.db: \(error)")
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("\(errmsg)")
         }
     }
     
@@ -53,36 +54,16 @@ class DBHelper{
         }
     }
     
-    internal func queryDatabase(with query: String){
-//    ->OpaquePointer? {
-//        var OperationStatement: OpaquePointer?
-//        var ReturnStatement: OpaquePointer?
-//        print("querydb \(query)")
-//        if sqlite3_prepare_v2(db, query, -1, &OperationStatement, nil) == SQLITE_OK {
-//            let id = sqlite3_column_int64(OperationStatement, 0)
-//                print("id = \(id); ", terminator: "")
-//            ReturnStatement = OperationStatement
-//        }
-//        return ReturnStatement
-        var statement: OpaquePointer?
-        
-        if sqlite3_prepare_v2(db, query, -1, &statement, nil) != SQLITE_OK {
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("preparing  error: \(errmsg)")
-        }
-        do {
-            while sqlite3_step(statement) == SQLITE_ROW {
-                let item = String(cString: (sqlite3_column_text(statement, 0)))
-            }
-        }catch {
-            print(error.localizedDescription)
-        }
-
-        if sqlite3_finalize(statement) != SQLITE_OK {
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("finalizing error: \(errmsg)")
-        }
-    }
+    internal func queryDatabase(with query: String) -> OpaquePointer?{
+           var OperationStatement: OpaquePointer?
+           
+           if sqlite3_prepare_v2(db, query, -1, &OperationStatement, nil) !=
+               SQLITE_OK {
+               let errmsg = String(cString: sqlite3_errmsg(db)!)
+               print("preparing  error: \(errmsg)")
+           }
+           return OperationStatement
+       }
     
     internal func executeUpdateDeleteQuery(query: String)->Bool{
         if query == ""{

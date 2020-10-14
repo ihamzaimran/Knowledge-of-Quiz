@@ -31,6 +31,7 @@
 		EC9F9129252DADE000864C95 /* QuizOfKnowledge.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = EC9F9127252DADE000864C95 /* QuizOfKnowledge.sqlite */; };
 		EC9F912A252DADE000864C95 /* bg_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC9F9128252DADE000864C95 /* bg_music.mp3 */; };
 		ECB34A792534651C005F8A8C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB34A782534651C005F8A8C /* ResultsViewController.swift */; };
+		ECFD43C225358BA000AF4F2B /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFD43C125358B9F00AF4F2B /* QuizBrain.swift */; };
 		FB211760B3BD3442F9D8BA93 /* Pods_Quiz_Of_Knowledge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759267ED026767D9002D267F /* Pods_Quiz_Of_Knowledge.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		EC9F9127252DADE000864C95 /* QuizOfKnowledge.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuizOfKnowledge.sqlite; sourceTree = "<group>"; };
 		EC9F9128252DADE000864C95 /* bg_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_music.mp3; sourceTree = "<group>"; };
 		ECB34A782534651C005F8A8C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		ECFD43C125358B9F00AF4F2B /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				EC9F912D252DADF500864C95 /* Database Helper */,
 				EC48AFED252EF4CB00A63D44 /* OpenExternalLinkModel.swift */,
+				ECFD43C125358B9F00AF4F2B /* QuizBrain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				EC33B876252DD70A003B3B86 /* Constants.swift in Sources */,
 				EC48AFF7252F282100A63D44 /* ScoreBoardTableViewCell.swift in Sources */,
 				EC4EECF825302E6200A1BF24 /* QuizTableCell.swift in Sources */,
+				ECFD43C225358BA000AF4F2B /* QuizBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
