@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-class AboutViewController: UIViewController, UIGestureRecognizerDelegate {
+class AboutViewController: UIViewController {
     
     //MARK:- IBOutlets
     
@@ -39,9 +39,6 @@ class AboutViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         setIpadSettings()
         CheckForiPhoneModel()

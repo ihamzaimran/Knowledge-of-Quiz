@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
+class ScoreViewController: UIViewController {
 
     //MARK:-IBOutlets
     @IBOutlet weak var titleLBL: UILabel!
@@ -21,8 +21,7 @@ class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+      
         setIpadSettings()
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,14 +46,7 @@ class ScoreViewController: UIViewController, UIGestureRecognizerDelegate {
     
     //MARK:- buttons pressed functions
     @IBAction func backButton(_ sender: UIButton) {
-//        self.navigationController?.popViewController(animated: true)
-        
-        for controller in self.navigationController!.viewControllers as Array {
-            if controller.isKind(of: ViewController.self) {
-                self.navigationController!.popToViewController(controller, animated: true)
-                break
-            }
-        }
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

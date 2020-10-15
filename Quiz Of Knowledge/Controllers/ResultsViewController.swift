@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultsViewController: UIViewController, UIGestureRecognizerDelegate {
+class ResultsViewController: UIViewController {
     
     //MARK:- IBOutlets
     @IBOutlet weak var gameOverLBL: UILabel!
@@ -26,6 +26,12 @@ class ResultsViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
     internal var score: Int?
+    internal var categoryID: Int?
+    internal var categoryName: String?
+    internal var correctAnswer: Int?
+    internal var wrongAnswer: Int?
+    internal var highestScore: Int?
+    @IBOutlet weak var newRecordLBL: UILabel!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -36,19 +42,34 @@ class ResultsViewController: UIViewController, UIGestureRecognizerDelegate {
         
         setIpadSettings()
         CheckForiPhoneModel()
+        checkforHighScore()
         
-        if let score = score {
-            scoreLBL.text = "Score: \(score)"
+        if let correct = correctAnswer, let wrong = wrongAnswer {
+            correctAnswersLBL.text = "Correct Answers: \(correct)"
+            wrongAnswersLBL.text = "Wrong Answers: \(wrong)"
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-            self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.removeViewController(SelectedQuizViewController.self)
+        self.navigationController?.removeViewController(GameRulesViewController.self)
+        self.navigationController?.removeViewController(QuizViewController.self)
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    
+    private func checkforHighScore(){
+        if let score = score, let highestScore = highestScore{
+            if score > highestScore {
+                gameOverLBL.text = "Congratulations!"
+                scoreLBL.text = ("Score is: \(score)")
+                newRecordLBL.isHidden = false
+                newRecordLBL.fadeINOut()
+            } else {
+                gameOverLBL.text = "Game Over!"
+                scoreLBL.text = ("Score is: \(score)")
+                newRecordLBL.isHidden = true
+            }
+            
+        }
     }
     
     //MARK:- functions to change views settings depending on the device
@@ -66,7 +87,7 @@ class ResultsViewController: UIViewController, UIGestureRecognizerDelegate {
             correctAnswersLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 35)
             wrongAnswersLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 35)
             titleBottomConstraint.constant = -50
-            bottomStackViewTopConstraint.constant = 150
+//            bottomStackViewTopConstraint.constant = 150
             tickLeadingConstraint.constant = 200
             crossLeadingConstraint.constant = 200
         default:
@@ -114,6 +135,11 @@ class ResultsViewController: UIViewController, UIGestureRecognizerDelegate {
     //MARK:- button functions
     
     @IBAction func replayButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
+        newVC.categoryID = self.categoryID
+        newVC.categoryName = self.categoryName
+        self.navigationController?.pushViewController(newVC, animated: true)
     }
     
     @IBAction func homeButton(_ sender: UIButton) {
@@ -125,5 +151,45 @@ class ResultsViewController: UIViewController, UIGestureRecognizerDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.scoreVCStoryboard) as! ScoreViewController
         self.navigationController?.pushViewController(newVC, animated: true)
+    }
+}
+
+
+//MARK:- extension for removing view controller
+
+extension UINavigationController {
+
+    func removeViewController(_ controller: UIViewController.Type) {
+        if let viewController = viewControllers.first(where: { $0.isKind(of: controller.self) }) {
+            viewController.removeFromParent()
+            print("View Controller Successfully removed!")
+        } else {
+            print("View Controller not found!")
+        }
+    }
+}
+
+
+//MARK:- extension to fadeIN/Out new record label
+
+extension UILabel {
+    //function for button animation for correct answer
+    internal func fadeINOut(){
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.alpha = 0.0
+        }, completion: {
+            (finished: Bool) -> Void in
+            UIView.animate(withDuration: 1.0, delay: 0.1, options: .curveEaseOut, animations: {
+                self.alpha = 1.0
+            }) { (finished: Bool) -> Void in
+                UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+                    self.alpha = 0.0
+                }) { (finished: Bool)->Void in
+                    UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
+                        self.alpha = 1.0
+                    }, completion: nil)
+                }
+            }
+        })
     }
 }

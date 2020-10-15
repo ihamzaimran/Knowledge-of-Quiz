@@ -8,7 +8,7 @@
 import UIKit
 import SQLite3
 
-class GameRulesViewController: UIViewController, UIGestureRecognizerDelegate {
+class GameRulesViewController: UIViewController {
     
     //MARK:- IBOutlets
     @IBOutlet weak var titleLBL: UILabel!
@@ -30,9 +30,6 @@ class GameRulesViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         tableView.delegate = self
         tableView.dataSource = self

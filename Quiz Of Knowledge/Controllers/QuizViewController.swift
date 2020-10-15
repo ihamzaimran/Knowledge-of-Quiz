@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuizViewController: UIViewController, UIGestureRecognizerDelegate {
+class QuizViewController: UIViewController {
     //MARK:- IBOutlets
     @IBOutlet weak var titleLBL: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -26,9 +26,6 @@ class QuizViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         tableView.delegate = self
         tableView.dataSource = self

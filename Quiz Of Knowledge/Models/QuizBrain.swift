@@ -12,6 +12,7 @@ class QuizBrain {
     
     private var data = [[String:String]]()
     private var totalQuestions = 0
+    private var highestScore = 0
     
     internal func getQuestionsFomSQLite(for id: Int?) {
         if let categoryID = id {
@@ -59,6 +60,26 @@ class QuizBrain {
         }
     }
     
+    
+    internal func getHighestScoreForSelectedCategory(for id: Int?)->Int {
+        if let categoryID = id {
+            let query = "select MAX(score) from Score where category_no = \(categoryID)"
+            let db = DBHelper()
+            db.openDatabase()
+            
+            let ReturnStatement = db.queryDatabase(with: query)
+            
+            while sqlite3_step(ReturnStatement) == SQLITE_ROW {
+                
+                let score = sqlite3_column_int64(ReturnStatement, 0)
+                highestScore = Int(score)
+                return highestScore
+            }
+        }
+        return 0
+    }
+   
+    
     internal func calculateTotalQuestions()->Int{
         totalQuestions = data.count
         return totalQuestions
@@ -68,5 +89,5 @@ class QuizBrain {
         
         return data
     }
-
+    
 }
