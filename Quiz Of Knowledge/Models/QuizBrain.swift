@@ -13,14 +13,14 @@ class QuizBrain {
     private var data = [[String:String]]()
     private var totalQuestions = 0
     private var highestScore = 0
+    private let db = DBHelper()
+    
     
     internal func getQuestionsFomSQLite(for id: Int?) {
         if let categoryID = id {
             var mainDict:[String:String] = [:]
             let query = "select * from Question where category_no = \(categoryID)"
-            let db = DBHelper()
             db.openDatabase()
-            
             let ReturnStatement = db.queryDatabase(with: query)
             
             while sqlite3_step(ReturnStatement) == SQLITE_ROW {
@@ -57,13 +57,16 @@ class QuizBrain {
                 
                 data.append(mainDict)
             }
+            sqlite3_finalize(ReturnStatement)
+            db.closeDatabase()
         }
     }
     
     
     internal func getHighestScoreForSelectedCategory(for id: Int?)->Int {
         if let categoryID = id {
-            let query = "select MAX(score) from Score where category_no = \(categoryID)"
+            let query = "select score from Score where category_no = \(categoryID)"
+            print("Query is \(query)")
             let db = DBHelper()
             db.openDatabase()
             
@@ -73,12 +76,15 @@ class QuizBrain {
                 
                 let score = sqlite3_column_int64(ReturnStatement, 0)
                 highestScore = Int(score)
+                sqlite3_finalize(ReturnStatement)
+                db.closeDatabase()
+                print("Score is : \(highestScore)")
                 return highestScore
             }
         }
         return 0
     }
-   
+    
     
     internal func calculateTotalQuestions()->Int{
         totalQuestions = data.count
@@ -90,4 +96,14 @@ class QuizBrain {
         return data
     }
     
+    internal func update(with score:Int?, for categoryID: Int?){
+        
+        if let score = score, let id = categoryID {
+            let query = "UPDATE Score SET score = '\(score)' WHERE category_no = '\(id)' and mode_name = '\(Constants.Score.mode_name)' and score_language = '\(Constants.Score.score_language)';"
+            print("query is: \(query)")
+            db.openDatabase()
+            db.updateScore(query: query)
+            db.closeDatabase()
+        }
+    }
 }

@@ -40,7 +40,7 @@ class DBHelper{
             }
         } catch {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("\(errmsg)")
+            print("Error: \(errmsg)")
         }
     }
     
@@ -55,42 +55,42 @@ class DBHelper{
     }
     
     internal func queryDatabase(with query: String) -> OpaquePointer?{
-           var OperationStatement: OpaquePointer?
-           
-           if sqlite3_prepare_v2(db, query, -1, &OperationStatement, nil) !=
-               SQLITE_OK {
-               let errmsg = String(cString: sqlite3_errmsg(db)!)
-               print("preparing  error: \(errmsg)")
-           }
-           return OperationStatement
-       }
+        var OperationStatement: OpaquePointer?
+        
+        if sqlite3_prepare_v2(db, query, -1, &OperationStatement, nil) !=
+            SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("preparing  error: \(errmsg)")
+        }
+        //         sqlite3_finalize(OperationStatement)
+        return OperationStatement
+    }
     
-    internal func executeUpdateDeleteQuery(query: String)->Bool{
+    internal func updateScore(query: String){
+        
         if query == ""{
-            return false
+            return
         }
         
-        var returnValue = false
-        var deleteStatement: OpaquePointer? = nil
+        var updateStatement: OpaquePointer?
         
-        if sqlite3_prepare_v2(db, query, -1, &deleteStatement, nil) == SQLITE_OK{
-            returnValue = true
-        }
-        
-        if returnValue {
-            let result = sqlite3_step(deleteStatement)
-            
-            if result != SQLITE_DONE{
-                print(result)
-                sqlite3_finalize(deleteStatement)
+        if sqlite3_prepare_v2(db, query, -1, &updateStatement, nil) == SQLITE_OK {
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+                print("Score successfully updated!")
+            } else {
+                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                print("preparing  error: \(errmsg)")
             }
+        } else {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("preparing  error: \(errmsg)")
+            print("Update statement is not prepared!")
         }
-        return returnValue
+        sqlite3_finalize(updateStatement)
     }
     
     internal func closeDatabase() {
         sqlite3_close(db)
         print("Connection close successfully")
     }
-    
 }

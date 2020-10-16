@@ -41,12 +41,13 @@ class SelectedQuizViewController: UIViewController{
     private var questionAnswerDictionary = [[String:String]]()
     private var currentQuestion = 0
     private var score = 0
-    private var clockTimer = Timer()
+    private var clockTimer:Timer?
     private var consecutiveCount = 0
     private var wrongCount = 0
     private var correntAnswer = 0
     private var wrongAnswer = 0
     private var highestScore = 0
+    private var timerCount = 0
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -59,24 +60,35 @@ class SelectedQuizViewController: UIViewController{
         setCategoryTitle()
         setIpadSettings()
         quizBrain.getQuestionsFomSQLite(for: categoryID)
-        highestScore = quizBrain.getHighestScoreForSelectedCategory(for: categoryID)
         questionAnswerDictionary = quizBrain.getQuestions().shuffled()
         updateQuestion()
     }
     
+    
     //timer function
     private func timer() {
-        self.clockTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true);
+        guard clockTimer == nil else {return}
+        
+        clockTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer(){
+        if clockTimer != nil {
+            clockTimer?.invalidate()
+            time = 20
+            clockTimer = nil
+            print("Stop timer fired!")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        highestScore = quizBrain.getHighestScoreForSelectedCategory(for: categoryID)
         self.navigationController?.removeViewController(ResultsViewController.self)
     }
     
     //getting question from QuizBrain
     private func updateQuestion(){
         
-        time = 20
         timer()
         buttonA.buttonShadow()
         buttonB.buttonShadow()
@@ -133,19 +145,16 @@ class SelectedQuizViewController: UIViewController{
     }
     //function to run on timer
     @objc func updateTimer(){
-        time -= 1
-        timeRemainingLBL.text = String(time)
         
-        //        if currentQuestion > questionAnswerDictionary.count - 1 {
-        //            goToResultsVC()
-        //        }
-        
+      
         if time == 1 {
-            clockTimer.invalidate()
+            stopTimer()
             currentQuestion += 1
-            timeRemainingLBL.text = String(time)
             updateQuestion()
         }
+        
+        time -= 1
+        timeRemainingLBL.text = String(time)
     }
     
     //setting category title
@@ -156,9 +165,10 @@ class SelectedQuizViewController: UIViewController{
     }
     
     private func goToResultsVC(){
-        
-        clockTimer.invalidate()
+        questionAnswerDictionary = []
+        stopTimer()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+            self.time = 0
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.resultsStoryboard) as! ResultsViewController
             newVC.score = self.score
@@ -170,6 +180,7 @@ class SelectedQuizViewController: UIViewController{
             self.navigationController?.pushViewController(newVC, animated: true)
         }
     }
+    
     
     //MARK:- functions to change views settings depending on the device
     
@@ -213,28 +224,28 @@ class SelectedQuizViewController: UIViewController{
             let userGotIt = checkAnswer(answer)
             print("user got it? : \(userGotIt)")
             if !userGotIt {
-                clockTimer.invalidate()
+                stopTimer()
                 scoreLBL.text = "Score: \(score)"
                 sender.tag = 2
                 animateButtons()
                 wrongCount += 1
                 wrongAnswer += 1
-                checkGameOver()
                 disableLifeLine()
+                checkGameOver()
                 print("Wrong Answer = \(wrongCount)")
                 print("Try again...")
             }else {
-                clockTimer.invalidate()
+                stopTimer()
                 scoreLBL.text = "Score: \(score)"
                 sender.tag = 1
                 animateButtons()
                 consecutiveCount += 1
                 correntAnswer += 1
                 enableLifeLine()
+                checkGameOver()
                 print("yayyyyy.....!!!")
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                
                 self.currentQuestion += 1
                 self.updateQuestion()
             }
@@ -405,7 +416,7 @@ class SelectedQuizViewController: UIViewController{
                 consecutiveCount = 10
                 lifeLine1imageView.isHidden = true
             }
-        } else if consecutiveCount > 15 {
+        } else if consecutiveCount >= 15 {
             if wrongCount == 1 {
                 consecutiveCount = 15
                 lifeLine6ImageView.isHidden = true
@@ -429,9 +440,14 @@ class SelectedQuizViewController: UIViewController{
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        clockTimer.invalidate()
+        print("Will disappear called.")
+        stopTimer()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        print("did disappear called.")
+        stopTimer()
+    }
 }
 
 

@@ -23,6 +23,7 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var crossLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var correctAnswersLBL: UILabel!
     @IBOutlet weak var wrongAnswersLBL: UILabel!
+    @IBOutlet weak var newRecordLBL: UILabel!
     
     private let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
     internal var score: Int?
@@ -31,7 +32,7 @@ class ResultsViewController: UIViewController {
     internal var correctAnswer: Int?
     internal var wrongAnswer: Int?
     internal var highestScore: Int?
-    @IBOutlet weak var newRecordLBL: UILabel!
+    private var quizBrain = QuizBrain()
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -43,6 +44,7 @@ class ResultsViewController: UIViewController {
         setIpadSettings()
         CheckForiPhoneModel()
         checkforHighScore()
+        print("User Score is: \(score)")
         
         if let correct = correctAnswer, let wrong = wrongAnswer {
             correctAnswersLBL.text = "Correct Answers: \(correct)"
@@ -57,19 +59,24 @@ class ResultsViewController: UIViewController {
     }
     
     private func checkforHighScore(){
-        if let score = score, let highestScore = highestScore{
+        if let score = score, let highestScore = highestScore, let id = categoryID {
             if score > highestScore {
+                updateScoreinSQLite(with: score, for: id)
                 gameOverLBL.text = "Congratulations!"
-                scoreLBL.text = ("Score is: \(score)")
+//                scoreLBL.text = ("Score is: \(score)")
                 newRecordLBL.isHidden = false
                 newRecordLBL.fadeINOut()
             } else {
+                print("No need to Update Score!")
                 gameOverLBL.text = "Game Over!"
                 scoreLBL.text = ("Score is: \(score)")
                 newRecordLBL.isHidden = true
             }
-            
         }
+    }
+    
+    private func updateScoreinSQLite(with score: Int, for id: Int){
+        quizBrain.update(with: score, for: id)
     }
     
     //MARK:- functions to change views settings depending on the device

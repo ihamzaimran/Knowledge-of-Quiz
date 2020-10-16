@@ -31,6 +31,7 @@
 		EC9F9129252DADE000864C95 /* QuizOfKnowledge.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = EC9F9127252DADE000864C95 /* QuizOfKnowledge.sqlite */; };
 		EC9F912A252DADE000864C95 /* bg_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC9F9128252DADE000864C95 /* bg_music.mp3 */; };
 		ECB34A792534651C005F8A8C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB34A782534651C005F8A8C /* ResultsViewController.swift */; };
+		ECB9ED052539796B003D6406 /* Score VC Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9ED042539796B003D6406 /* Score VC Model.swift */; };
 		ECFD43C225358BA000AF4F2B /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFD43C125358B9F00AF4F2B /* QuizBrain.swift */; };
 		FB211760B3BD3442F9D8BA93 /* Pods_Quiz_Of_Knowledge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759267ED026767D9002D267F /* Pods_Quiz_Of_Knowledge.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		EC9F9127252DADE000864C95 /* QuizOfKnowledge.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuizOfKnowledge.sqlite; sourceTree = "<group>"; };
 		EC9F9128252DADE000864C95 /* bg_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_music.mp3; sourceTree = "<group>"; };
 		ECB34A782534651C005F8A8C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		ECB9ED042539796B003D6406 /* Score VC Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Score VC Model.swift"; sourceTree = "<group>"; };
 		ECFD43C125358B9F00AF4F2B /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				EC9F912D252DADF500864C95 /* Database Helper */,
 				EC48AFED252EF4CB00A63D44 /* OpenExternalLinkModel.swift */,
 				ECFD43C125358B9F00AF4F2B /* QuizBrain.swift */,
+				ECB9ED042539796B003D6406 /* Score VC Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,9 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				EC9F9116252DAD2200864C95 /* ViewController.swift */,
+				EC48B007252F340100A63D44 /* QuizViewController.swift */,
 				EC33B878252DE0A5003B3B86 /* AboutViewController.swift */,
 				EC48AFF3252F1B8D00A63D44 /* ScoreViewController.swift */,
-				EC48B007252F340100A63D44 /* QuizViewController.swift */,
 				EC4EECFA2530333200A1BF24 /* GameRulesViewController.swift */,
 				EC4EED042530539F00A1BF24 /* SelectedQuizViewController.swift */,
 				ECB34A782534651C005F8A8C /* ResultsViewController.swift */,
@@ -351,6 +354,7 @@
 				EC9F9117252DAD2200864C95 /* ViewController.swift in Sources */,
 				EC9F9113252DAD2200864C95 /* AppDelegate.swift in Sources */,
 				EC9F9115252DAD2200864C95 /* SceneDelegate.swift in Sources */,
+				ECB9ED052539796B003D6406 /* Score VC Model.swift in Sources */,
 				ECB34A792534651C005F8A8C /* ResultsViewController.swift in Sources */,
 				EC48AFEE252EF4CB00A63D44 /* OpenExternalLinkModel.swift in Sources */,
 				EC4EECFF25303C0700A1BF24 /* GameRulesTableViewCell.swift in Sources */,

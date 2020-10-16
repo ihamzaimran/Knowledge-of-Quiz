@@ -61,4 +61,9 @@ struct Constants {
         static let helpImages = ["help1","help2","help3","help4","help5"]
     }
     
+    struct Score {
+        static let mode_name = "easy"
+        static let score_language = "english"
+    }
+    
 }
