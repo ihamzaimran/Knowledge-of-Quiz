@@ -18,6 +18,7 @@ class ScoreViewController: UIViewController {
     private let scoreModel = ScoreVCModel()
     private var data = [[String:String]]()
     private let helper = DBHelper()
+    private let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -77,6 +78,15 @@ extension ScoreViewController: UITableViewDelegate, UITableViewDataSource{
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         
+        switch (deviceIdiom) {
+        case .pad:
+            cell.categoryLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 30)
+            cell.scoreLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 30)
+        default:
+            cell.categoryLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 25)
+            cell.scoreLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 25)
+        }
+        
         if !data.isEmpty{
             cell.categoryLBL.text = data[indexPath.row]["name"]
             cell.scoreLBL.text = data[indexPath.row]["score"]
@@ -86,6 +96,12 @@ extension ScoreViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        
+        switch (deviceIdiom) {
+        case .pad:
+            return 100
+        default:
+            return 80
+        }
     }
 }
