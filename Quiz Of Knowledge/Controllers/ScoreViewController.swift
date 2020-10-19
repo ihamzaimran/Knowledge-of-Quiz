@@ -17,6 +17,7 @@ class ScoreViewController: UIViewController {
     
     private let scoreModel = ScoreVCModel()
     private var data = [[String:String]]()
+    private let helper = DBHelper()
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -79,7 +80,6 @@ extension ScoreViewController: UITableViewDelegate, UITableViewDataSource{
         if !data.isEmpty{
             cell.categoryLBL.text = data[indexPath.row]["name"]
             cell.scoreLBL.text = data[indexPath.row]["score"]
-            
         }
         
         return cell

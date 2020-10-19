@@ -6,5 +6,4 @@ target 'Quiz Of Knowledge' do
   use_frameworks!
 
   # Pods for Quiz Of Knowledge
-  pod 'SQLite.swift', '~> 0.12.0'
 end

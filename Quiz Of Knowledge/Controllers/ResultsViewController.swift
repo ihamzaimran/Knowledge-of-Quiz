@@ -15,7 +15,6 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var scoreLBL: UILabel!
     @IBOutlet weak var bottomStackViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomStackViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomStackViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var replayLBL: UILabel!
     @IBOutlet weak var homeLBL: UILabel!
     @IBOutlet weak var scoreVCLBL: UILabel!
@@ -24,6 +23,9 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var correctAnswersLBL: UILabel!
     @IBOutlet weak var wrongAnswersLBL: UILabel!
     @IBOutlet weak var newRecordLBL: UILabel!
+    @IBOutlet weak var correctAnswersTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var correctAnsConstraint: NSLayoutConstraint!
+    
     
     private let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
     internal var score: Int?
@@ -44,7 +46,7 @@ class ResultsViewController: UIViewController {
         setIpadSettings()
         CheckForiPhoneModel()
         checkforHighScore()
-        print("User Score is: \(score)")
+//        print("User Score is: \(score)")
         
         if let correct = correctAnswer, let wrong = wrongAnswer {
             correctAnswersLBL.text = "Correct Answers: \(correct)"
@@ -63,7 +65,7 @@ class ResultsViewController: UIViewController {
             if score > highestScore {
                 updateScoreinSQLite(with: score, for: id)
                 gameOverLBL.text = "Congratulations!"
-//                scoreLBL.text = ("Score is: \(score)")
+                scoreLBL.text = ("Score is: \(score)")
                 newRecordLBL.isHidden = false
                 newRecordLBL.fadeINOut()
             } else {
@@ -92,11 +94,13 @@ class ResultsViewController: UIViewController {
             homeLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 30)
             replayLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 30)
             correctAnswersLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 35)
+            newRecordLBL.font = UIFont.init(name: Constants.Fonts.comfartaaBold, size: 65)
             wrongAnswersLBL.font = UIFont.init(name: Constants.Fonts.comfartaaRegular, size: 35)
             titleBottomConstraint.constant = -50
-//            bottomStackViewTopConstraint.constant = 150
+            correctAnswersTopConstraint.constant = -200
             tickLeadingConstraint.constant = 200
             crossLeadingConstraint.constant = 200
+            correctAnsConstraint.constant = -200
         default:
             break
         }

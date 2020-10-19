@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VtH-by-okT">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -400,7 +401,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score Board" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCx-q5-Mow">
-                                        <rect key="frame" x="134.66666666666669" y="69.666666666666671" width="144.66666666666669" height="25"/>
+                                        <rect key="frame" x="145.33333333333334" y="69.666666666666671" width="123.33333333333334" height="25"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -442,13 +443,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="jcb-cB-arR">
-                                                    <rect key="frame" x="20" y="16" width="72.666666666666671" height="28"/>
+                                                    <rect key="frame" x="20.000000000000004" y="15.333333333333334" width="61.333333333333343" height="29.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="25"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="CSL-yC-IID">
-                                                    <rect key="frame" x="326.66666666666669" y="16" width="72.333333333333314" height="28"/>
+                                                    <rect key="frame" x="337.66666666666669" y="15.333333333333334" width="61.333333333333314" height="29.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="25"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1060,13 +1061,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="179.33333333333334"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5v-29-oVV">
-                                        <rect key="frame" x="139.66666666666669" y="52.333333333333336" width="134.66666666666669" height="24.666666666666664"/>
+                                        <rect key="frame" x="148" y="51.666666666666664" width="118" height="25.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-93-KtW">
-                                        <rect key="frame" x="162" y="129.66666666666666" width="90.333333333333314" height="24.666666666666657"/>
+                                        <rect key="frame" x="166" y="128.66666666666666" width="82" height="25.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1100,7 +1101,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Correct Answers : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms5-hr-Fzf">
-                                <rect key="frame" x="78.666666666666657" y="334" width="320.33333333333337" height="28"/>
+                                <rect key="frame" x="78.666666666666657" y="333.33333333333331" width="320.33333333333337" height="29.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1112,32 +1113,32 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Wrong Answers : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUH-ET-yTb">
-                                <rect key="frame" x="78.666666666666657" y="410" width="320.33333333333337" height="28"/>
+                                <rect key="frame" x="78.666666666666657" y="410" width="320.33333333333337" height="29.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Record!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="hW0-fA-jEh">
-                                <rect key="frame" x="79" y="498.00000000000006" width="256" height="44.666666666666686"/>
+                                <rect key="frame" x="91" y="499.33333333333331" width="232" height="46.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mhq-6y-daF" userLabel="Bottom Stack View">
-                                <rect key="frame" x="51.666666666666657" y="592.66666666666663" width="310.66666666666674" height="143.33333333333337"/>
+                                <rect key="frame" x="51.666666666666657" y="596" width="310.66666666666674" height="143.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rAL-tx-mh4" userLabel="Replay Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="97" height="143.33333333333334"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCj-UK-xhA">
-                                                <rect key="frame" x="0.0" y="0.0" width="97" height="127.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="127"/>
                                                 <state key="normal" image="replay"/>
                                                 <connections>
                                                     <action selector="replayButton:" destination="dJf-tA-1C4" eventType="touchUpInside" id="a4k-cH-Gee"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzm-LW-zfX">
-                                                <rect key="frame" x="24.666666666666664" y="127.66666666666676" width="47.999999999999993" height="15.666666666666671"/>
+                                                <rect key="frame" x="27.000000000000004" y="126.99999999999999" width="43.333333333333343" height="16.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1148,14 +1149,14 @@
                                         <rect key="frame" x="107" y="0.0" width="96.666666666666686" height="143.33333333333334"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbc-Rb-xhy">
-                                                <rect key="frame" x="0.0" y="0.0" width="96.666666666666671" height="127.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="96.666666666666671" height="127"/>
                                                 <state key="normal" image="home"/>
                                                 <connections>
                                                     <action selector="homeButton:" destination="dJf-tA-1C4" eventType="touchUpInside" id="MUc-yI-ZVR"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsB-ow-pQX">
-                                                <rect key="frame" x="26.666666666666689" y="127.66666666666676" width="43.333333333333343" height="15.666666666666671"/>
+                                                <rect key="frame" x="29.666666666666682" y="126.99999999999999" width="37.666666666666657" height="16.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1166,14 +1167,14 @@
                                         <rect key="frame" x="213.66666666666663" y="0.0" width="97" height="143.33333333333334"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-vO-JJL">
-                                                <rect key="frame" x="0.0" y="0.0" width="97" height="127.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="127"/>
                                                 <state key="normal" backgroundImage="score"/>
                                                 <connections>
                                                     <action selector="scoreButton:" destination="dJf-tA-1C4" eventType="touchUpInside" id="WF7-xA-f96"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h13-El-MNR">
-                                                <rect key="frame" x="27.666666666666682" y="127.66666666666676" width="41.666666666666657" height="15.666666666666671"/>
+                                                <rect key="frame" x="30.333333333333368" y="126.99999999999999" width="36.666666666666657" height="16.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1218,11 +1219,13 @@
                     <connections>
                         <outlet property="bottomStackViewHeightConstraint" destination="COP-AL-hND" id="1hD-rT-KQD"/>
                         <outlet property="bottomStackViewWidthConstraint" destination="4vL-nR-vmK" id="Xsi-Zx-vFe"/>
+                        <outlet property="correctAnsConstraint" destination="W7u-1C-vE3" id="Ojs-mI-EBf"/>
                         <outlet property="correctAnswersLBL" destination="Ms5-hr-Fzf" id="1fT-Bw-vgm"/>
+                        <outlet property="correctAnswersTopConstraint" destination="7Ya-2q-hYp" id="OQr-ha-Iw3"/>
                         <outlet property="crossLeadingConstraint" destination="q4N-Gp-EFI" id="YWU-D8-XdQ"/>
                         <outlet property="gameOverLBL" destination="N5v-29-oVV" id="O3N-wo-zO6"/>
                         <outlet property="homeLBL" destination="rsB-ow-pQX" id="K1K-jU-guh"/>
-                        <outlet property="newRecordLBL" destination="hW0-fA-jEh" id="fbB-Ck-fki"/>
+                        <outlet property="newRecordLBL" destination="hW0-fA-jEh" id="kmV-yL-mON"/>
                         <outlet property="replayLBL" destination="Fzm-LW-zfX" id="zKr-Bb-SAB"/>
                         <outlet property="scoreLBL" destination="ZWG-93-KtW" id="Zqd-ys-Hm3"/>
                         <outlet property="scoreVCLBL" destination="h13-El-MNR" id="u1C-Fm-vLL"/>

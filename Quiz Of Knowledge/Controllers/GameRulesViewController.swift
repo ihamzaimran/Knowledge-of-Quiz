@@ -33,7 +33,6 @@ class GameRulesViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        print(categoryID)
         setIpadSettings()
     }
     
