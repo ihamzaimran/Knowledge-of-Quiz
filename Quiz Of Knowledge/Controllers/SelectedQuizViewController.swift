@@ -11,8 +11,8 @@ import SQLite3
 class SelectedQuizViewController: UIViewController{
     
     //MARK:- IBOutlets
-    @IBOutlet weak var backButtonBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var backButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var categoryTitleBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLBL: UILabel!
     @IBOutlet weak var scoreLBL: UILabel!
@@ -67,18 +67,38 @@ class SelectedQuizViewController: UIViewController{
     
     //timer function
     private func timer() {
-        guard clockTimer == nil else {return}
         
+        guard clockTimer == nil else {return}
         clockTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    func stopTimer(){
+    private func stopTimer(){
         if clockTimer != nil {
             clockTimer?.invalidate()
             time = 20
             clockTimer = nil
             print("Stop timer fired!")
         }
+    }
+    
+    //function to run on timer
+    @objc func updateTimer(){
+      
+        if time == 1 {
+            stopTimer()
+            checkButtonPressed()
+            currentQuestion += 1
+            updateQuestion()
+        }
+        
+        time -= 1
+        timeRemainingLBL.text = String(time)
+    }
+    
+    private func checkButtonPressed(){
+        wrongCount += 1
+        disableLifeLine()
+        checkGameOver()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,19 +163,6 @@ class SelectedQuizViewController: UIViewController{
             }
         }
     }
-    //function to run on timer
-    @objc func updateTimer(){
-        
-      
-        if time == 1 {
-            stopTimer()
-            currentQuestion += 1
-            updateQuestion()
-        }
-        
-        time -= 1
-        timeRemainingLBL.text = String(time)
-    }
     
     //setting category title
     private func setCategoryTitle() {
@@ -170,14 +177,25 @@ class SelectedQuizViewController: UIViewController{
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
             self.time = 0
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.resultsStoryboard) as! ResultsViewController
-            newVC.score = self.score
-            newVC.categoryID = self.categoryID
-            newVC.categoryName = self.categoryName
-            newVC.correctAnswer = self.correntAnswer
-            newVC.wrongAnswer = self.wrongAnswer
-            newVC.highestScore = self.highestScore
-            self.navigationController?.pushViewController(newVC, animated: true)
+            if #available(iOS 13.0, *) {
+                let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.resultsStoryboard) as! ResultsViewController
+                newVC.score = self.score
+                newVC.categoryID = self.categoryID
+                newVC.categoryName = self.categoryName
+                newVC.correctAnswer = self.correntAnswer
+                newVC.wrongAnswer = self.wrongAnswer
+                newVC.highestScore = self.highestScore
+                self.navigationController?.pushViewController(newVC, animated: true)
+            } else {
+                let newVC = storyboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.resultsStoryboard) as! ResultsViewController
+                newVC.score = self.score
+                newVC.categoryID = self.categoryID
+                newVC.categoryName = self.categoryName
+                newVC.correctAnswer = self.correntAnswer
+                newVC.wrongAnswer = self.wrongAnswer
+                newVC.highestScore = self.highestScore
+                self.navigationController?.pushViewController(newVC, animated: true)
+            }
         }
     }
     
@@ -367,8 +385,6 @@ class SelectedQuizViewController: UIViewController{
                 lifeLine6ImageView.isHidden = false
             }
         }
-        
-        
     }
     
     //func for hiding lifeLineImageView
@@ -453,7 +469,7 @@ class SelectedQuizViewController: UIViewController{
 
 //MARK:- UIButton extension to get Shadow Effect
 extension UIButton {
-    //func for button shadoq
+    //func for button shadow
     internal func buttonShadow(){
         self.backgroundColor = UIColor.clear.withAlphaComponent(0.3)
         self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Quiz Of Knowledge.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>B9B1E21075355DA912D387DD684F9D832C47F531</string>
+				<key>dateExpires</key>
+				<string>26/08/2021</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>482UFNK2HA.net.suavesolutions.Quiz-Of-Knowledge</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>H7E6RSEJP6</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>482UFNK2HA.net.suavesolutions.Quiz-Of-Knowledge</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Quiz Of Knowledge.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>f5357a4a-5ac7-4492-9622-469c4ff24fb4</string>
+				<key>name</key>
+				<string>Quiz Of Knowledge</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>H7E6RSEJP6</string>
+				<key>name</key>
+				<string>Suave Solutions</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

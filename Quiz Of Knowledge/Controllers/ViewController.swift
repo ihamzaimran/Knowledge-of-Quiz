@@ -89,7 +89,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             changeBottomViewheightMultiplier(with: 0.16)
         }
         else if height <= 900 {
-            changeBottomViewheightMultiplier(with: 0.14)
+            changeBottomViewheightMultiplier(with: 0.13)
         } else {
             changeBottomViewheightMultiplier(with: 0.17)
         }

@@ -2,22 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>twitter</string>
-		<string>fb</string>
-		<string>ymail</string>
-		<string>readdle-spark</string>
-		<string>googlegmail</string>
-		<string>ms-outlook</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>comfortaa_regular.ttf</string>
-		<string>comfortaa_light.ttf</string>
-		<string>comfortaa_bold.ttf</string>
-		<string>code.otf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -36,8 +20,24 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>twitter</string>
+		<string>fb</string>
+		<string>ymail</string>
+		<string>readdle-spark</string>
+		<string>googlegmail</string>
+		<string>ms-outlook</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>comfortaa_regular.ttf</string>
+		<string>comfortaa_light.ttf</string>
+		<string>comfortaa_bold.ttf</string>
+		<string>code.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -96,9 +96,17 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.gameRulesStoryboard) as! GameRulesViewController
-        newVC.categoryID = indexPath.row + 1
-        newVC.categoryName = categories[indexPath.row]
-        self.navigationController?.pushViewController(newVC, animated: true)
+        if #available(iOS 13.0, *) {
+            let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.gameRulesStoryboard) as! GameRulesViewController
+            newVC.categoryID = indexPath.row + 1
+            newVC.categoryName = categories[indexPath.row]
+            self.navigationController?.pushViewController(newVC, animated: true)
+        } else {
+            let newVC = storyboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.gameRulesStoryboard) as! GameRulesViewController
+            newVC.categoryID = indexPath.row + 1
+            newVC.categoryName = categories[indexPath.row]
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
+        
     }
 }

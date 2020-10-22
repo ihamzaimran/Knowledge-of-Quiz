@@ -137,7 +137,7 @@ class ResultsViewController: UIViewController {
             changeBottomViewheightMultiplier(with: 0.15, for: 0.75)
         }
         else if height <= 900 {
-            changeBottomViewheightMultiplier(with: 0.12, for: 0.75)
+            changeBottomViewheightMultiplier(with: 0.13, for: 0.75)
         } else {
             changeBottomViewheightMultiplier(with: 0.14, for: 0.50)
         }
@@ -147,10 +147,18 @@ class ResultsViewController: UIViewController {
     
     @IBAction func replayButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
-        newVC.categoryID = self.categoryID
-        newVC.categoryName = self.categoryName
-        self.navigationController?.pushViewController(newVC, animated: true)
+        if #available(iOS 13.0, *) {
+            let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
+            newVC.categoryID = self.categoryID
+            newVC.categoryName = self.categoryName
+            self.navigationController?.pushViewController(newVC, animated: true)
+        } else {
+            let newVC = storyboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
+            newVC.categoryID = self.categoryID
+            newVC.categoryName = self.categoryName
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
+        
     }
     
     @IBAction func homeButton(_ sender: UIButton) {
@@ -160,8 +168,14 @@ class ResultsViewController: UIViewController {
     @IBAction func scoreButton(_ sender: UIButton) {
     
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.scoreVCStoryboard) as! ScoreViewController
-        self.navigationController?.pushViewController(newVC, animated: true)
+        if #available(iOS 13.0, *) {
+            let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.scoreVCStoryboard) as! ScoreViewController
+            self.navigationController?.pushViewController(newVC, animated: true)
+        } else {
+            let newVC = storyboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.scoreVCStoryboard) as! ScoreViewController
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
+        
     }
 }
 

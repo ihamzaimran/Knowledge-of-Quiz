@@ -60,10 +60,18 @@ class GameRulesViewController: UIViewController {
     
     @IBAction func playButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
-        newVC.categoryID = categoryID
-        newVC.categoryName = categoryName
-        self.navigationController?.pushViewController(newVC, animated: true)
+        if #available(iOS 13.0, *) {
+            let newVC = storyboard.instantiateViewController(identifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
+            newVC.categoryID = categoryID
+            newVC.categoryName = categoryName
+            self.navigationController?.pushViewController(newVC, animated: true)
+        } else {
+            let newVC = storyboard.instantiateViewController(withIdentifier: Constants.StoryboardIDs.selectedCategoryQuizStoryboard) as! SelectedQuizViewController
+            newVC.categoryID = categoryID
+            newVC.categoryName = categoryName
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
+       
     }
 }
 

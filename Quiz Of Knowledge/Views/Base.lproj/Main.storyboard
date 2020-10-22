@@ -86,20 +86,20 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cjp-3o-00B" userLabel="Bottom Stack View">
-                                <rect key="frame" x="51.666666666666657" y="610" width="310.66666666666674" height="143.33333333333337"/>
+                                <rect key="frame" x="51.666666666666657" y="610" width="310.66666666666674" height="116.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5AL-dE-qvr" userLabel="Score Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="97" height="143.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="116.33333333333333"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amm-0f-XJT">
-                                                <rect key="frame" x="0.0" y="0.0" width="97" height="127.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="100.66666666666667"/>
                                                 <state key="normal" image="score"/>
                                                 <connections>
                                                     <action selector="scoreButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hYm-im-4Jk"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jN5-ED-5EN">
-                                                <rect key="frame" x="27.666666666666668" y="127.66666666666664" width="41.666666666666657" height="15.666666666666671"/>
+                                                <rect key="frame" x="27.666666666666668" y="100.66666666666663" width="41.666666666666657" height="15.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -107,17 +107,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DQz-Zs-5Ya" userLabel="About Stack View">
-                                        <rect key="frame" x="107" y="0.0" width="96.666666666666686" height="143.33333333333334"/>
+                                        <rect key="frame" x="107" y="0.0" width="96.666666666666686" height="116.33333333333333"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLa-vc-uGb">
-                                                <rect key="frame" x="0.0" y="0.0" width="96.666666666666671" height="127.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="96.666666666666671" height="100.66666666666667"/>
                                                 <state key="normal" image="about"/>
                                                 <connections>
                                                     <action selector="aboutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="clh-ee-gud"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KO0-n8-7HN">
-                                                <rect key="frame" x="26.333333333333346" y="127.66666666666664" width="44.333333333333343" height="15.666666666666671"/>
+                                                <rect key="frame" x="26.333333333333346" y="100.66666666666663" width="44.333333333333343" height="15.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -125,17 +125,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1Ne-DJ-Plg" userLabel="Music Stack View">
-                                        <rect key="frame" x="213.66666666666663" y="0.0" width="97" height="143.33333333333334"/>
+                                        <rect key="frame" x="213.66666666666663" y="0.0" width="97" height="116.33333333333333"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lM-Wy-ZOl">
-                                                <rect key="frame" x="0.0" y="0.0" width="97" height="127.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="100.66666666666667"/>
                                                 <state key="normal" backgroundImage="ic_sound_on"/>
                                                 <connections>
                                                     <action selector="musicButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QcS-SP-8QP"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuP-nu-ygj">
-                                                <rect key="frame" x="27.000000000000004" y="127.66666666666664" width="43.333333333333343" height="15.666666666666671"/>
+                                                <rect key="frame" x="27.000000000000004" y="100.66666666666663" width="43.333333333333343" height="15.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -154,7 +154,7 @@
                             <constraint firstItem="Cjp-3o-00B" firstAttribute="top" secondItem="w3U-gJ-4x6" secondAttribute="bottom" constant="50" id="94e-qG-zWD"/>
                             <constraint firstItem="dHV-Yw-Ayi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="CSw-hY-MD2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CBL-rj-CCs" secondAttribute="trailing" id="Qde-np-cvL"/>
-                            <constraint firstItem="Cjp-3o-00B" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.16" id="TeI-4D-4qj"/>
+                            <constraint firstItem="Cjp-3o-00B" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.13" id="TeI-4D-4qj"/>
                             <constraint firstAttribute="bottom" secondItem="CBL-rj-CCs" secondAttribute="bottom" id="Unl-DS-kKl"/>
                             <constraint firstItem="CBL-rj-CCs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WUU-X5-sbQ"/>
                             <constraint firstItem="CBL-rj-CCs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X42-MZ-67M"/>
